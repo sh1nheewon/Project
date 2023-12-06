@@ -1,35 +1,66 @@
 package BlackJack;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import BlackJack.Blackjack_model.CardsDto;
+import BlackJack.model.BlackJackDto;
 
 public class BlackJack {
 	private Scanner scan;
-	private List<CardsDto> cards = null;	
-	
-public void loadCards() {
+	private List<BlackJackDto> cards = null;	
+	InputStream is = null;
+	public 
 		
-		while(scan.hasNext()) {
-			String line = scan.nextLine();
-			CardsDto cardsDto = new CardsDto();
+		BlackJack blackJack = new BlackJack();
+	
+		
+		
+		
+		
+		try {
+		//	is = new FileInputStream();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		scan = new Scanner(is);
+		cards = new ArrayList<>();
+		
+		
+		}
+	
+	
+	
+	
+	
+
+	while(scan.hasNext()) {
+		String line = scan.nextLine();
+		
+		CardsDto cardsDto = new CardsDto();
 			
 			for(int i = 2 ; i < 10 ; i++) {
-				String[] lines = new String[i];
+				String[]  = new String[i];
 			
 			try {
-				cardsDto.Diamonds = lines[0];
-				cardsDto.Hearts = lines[1];
-				cardsDto.Spades = lines[2];
-				cardsDto.Clubs = lines[3];
+				BlackJackDto.Diamonds = lines[0];
+				BlackJackDto.Hearts = lines[1];
+				BlackJackDto.Spades = lines[2];
+				BlackJackDto.Clubs = lines[3];
 				
 			}catch (Exception e) {
-				System.out.println("데이터 읽는 중 오류 발생");
+				
 				System.out.println(lines);
 				break;
 			}
-			cards.add(cardsDto);
+			cards.add(BlackJackDto);
 			System.out.println(lines[i]);
 			}
 			}
