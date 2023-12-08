@@ -9,41 +9,47 @@
   
   	딜러는 2장의 카드 합 17 미만.
   	17 미만이면 카드를 계속 받는다.
-  		if(dealerSum < 17)
-  			카드추가
-  		if(playerSum < 17)
-  			카드추가
+**  		if(dealerSum < 17)
+**  			카드추가
+**  		if(playerSum < 17)
+**  			카드추가
   	
   	 
   	딜러와 게이머 모두 소유한 카드의 합 21을 넘을 수 없음
   	21점을 넘을 시 넘은 쪽이 지게 됨.
   	
   	게이머는 카드를 추가로 뽑을지(Hit) 멈출지(Stop) 선택.
-  	Stop : 점수 공개. 
-  		> if(dealerSum < 17)
-  			카드 추가
-  			else(dealerSum >= 17)
-  			break;
+  	Stop : 점수 공개.
+**  		if(stop) 
+**  		> if(dealerSum < 17)
+**  			카드 추가
+**  			else if(dealerSum >= 17)
+**  			break;
   	
   	Stop 입력하면
   	딜러와 게이머 중 소유한 카드의 합이 
   	21에 가장 가까운 사람 승
   	
   	*처음 2장씩 받은 카드의 합이 블랙잭(21)이면 무승부
-  		if(dealerSum == 21 || playerSum == 21)
-  			무승부 
+**  		if(dealerSum == 21 || playerSum == 21)
+**  			draw
   
   카드의 합이 21을 초과하면
-  		if(dealerSum > 21 )
-  			dealer 패
-  			break;
-  		else if(playerSum > 21)
-  			player 패
-  			break;
+**  		if(dealerSum > 21 )
+**  			dealer lose
+**  			break;
+**  		else if(playerSum > 21)
+**  			player lose
+**  			break;
   			
   게임 한 세트가 끝나면 카드 리스트 초기화 (황금열쇠 재시작)
   게임이 계속되어도 카드를 이어서 사용 X
   	
- # 블랙잭 : 카드의 합 21
+ # 블랙잭 : 카드의 합 21 
+** 	if(dealerSum == 21)
+** 		dealer win
+** 	else if(playerSum == 21)
+** 		player win
+ 		
  	소유한 카드의 합이 21에 가장 근접한 사람이 승리.
   

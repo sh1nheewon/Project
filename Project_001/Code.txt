@@ -1,0 +1,41 @@
+ 게임 시작
+ 서로 카드 1장씩 뽑고(출력) 
+ // pCard1 , dCard1
+ 
+ 한장 더 획득합니다 (enter 누르면 ) 다음 카드(출력) 
+ // pCard2, dCard2
+ 
+ 	String pCard1 = "spade8";
+	
+
+		int playerCard1 = Integer.valueOf(pCard1);
+ 
+ 
+ 카드 보여주기(2장의 카드 값 출력)
+ 
+ 카드 추가 획득 (hit) or 멈추기(stop)
+ 	String answer = scan.nextLine();
+ 	
+ ** if (ans.equals("h"))
+ 	if (playerCard1 + playerCard2 )  
+
+============================
+카드 4종류 (문자열 배열 ) 
+숫자 13종류 (1~13 수 나열	)
+카드 덱 52장(문자열 배열[0~3] = 각 13장씩
+
+
+		
+ 	list > 4 * 13
+ 	 
+ 	for(0<i<4){
+ 		
+ 		13장 : ran}	
+ 		
+ 		52개의 값을 list 보관
+ 		cards.add(BlackJackDto)
+		 		
+ randon 2개 (1~10 , 4)
+ 4짜리 rand =  . (0 : spade , 1 : dia ...)
+ 
+   

@@ -1,10 +1,11 @@
 package BlackJack;
 
-import java.util.Scanner;
+import BlackJack.service.BlackJack_service_TEST;
 
 public class BlackJack_Card {
-	private Scanner scan = null;
-	public BlackJack_Card() {
-		scan = new Scanner(System.in); 
+	public static void main(String[] args) {
+		BlackJack_service_TEST test = new BlackJack_service_TEST();
+		test.inputScores();
+
 	}
 }
