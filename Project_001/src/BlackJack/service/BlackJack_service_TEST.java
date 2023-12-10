@@ -25,25 +25,34 @@ public class BlackJack_service_TEST {
 //	int card = 0;
 //		card = (int) (Math.random() * 13) + 1;
 
-	int card[] = new int[3];
+	
 
 	public void inputScores() {
 		BlackJackDto bDto = new BlackJackDto();
-		
-			
-			int num = 0;
-			while (true) { // 1~13 숫자 나열
-				num++;
-				if (num > 13) {
-					break;
+		int num = 0;
+		String pattern = ""; 
+		int clubCard = 0;				
+				for(int i = 1 ; i < 4 ; i++) {
+				int rndNum = (int) (Math.random() * 13) + 1;
+								
+				if(num == 1) {
+					pattern = "A";
+				}else if(num == 11) {
+					pattern = "J";
+				}else if(num == 12) {
+					pattern = "Q";
+				}else if(num == 13) {
+					pattern = "K";
 				}
-				
-				for (int i = 0; i < 4; i++) {
-		}
-		System.out.println(num);
-		} // end while
+					
+				clubCard = bDto.Clubs[rndNum];
+				}
+				System.out.printf("%d",clubCard);
+			//	System.out.printf("%d\t%d\t%d\t%d\t",
+			//			bDto.Clubs[3],bDto.Hearts[1],bDto.Spades[2],bDto.Diamonds[0]);
+	}	
+		
 
-		// System.out.println(card);
-	}
+		
 
 }

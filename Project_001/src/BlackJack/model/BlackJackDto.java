@@ -2,10 +2,10 @@ package BlackJack.model;
 
 public class BlackJackDto {
 	
-	public String[] Diamonds;
-	public String[] Hearts;
-	public String[] Spades;
-	public String[] Clubs;
+	public int[] Diamonds;
+	public int[] Hearts;
+	public int[] Spades;
+	public int[] Clubs;
 	
 	
 	
