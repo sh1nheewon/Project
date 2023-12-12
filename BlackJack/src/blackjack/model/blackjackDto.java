@@ -1,17 +1,22 @@
 package blackjack.model;
 
 public class blackjackDto {
-
-	public String cardPattern ;
-	public String cardNumber ;
+	
+	
+	public String cardPattern() {
+	 String Club;
+	 String Diamond;
+	 String Spade;
+	 String Heart;
+	
+	return null;
+	}
 	
 	public String cardSum;
 	
-	public String getCard() {
-		cardSum = cardPattern + cardNumber;
-		return cardSum;
-	}
 	
+	
+	public int cardNumber;
 	
 	
 	public int playerPoint;

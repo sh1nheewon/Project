@@ -68,7 +68,7 @@ public class bService_Player {
 					System.out.println("카드 1장 더 뽑으려면 'h' 키, 멈추려면 's' 키를 입력하세요");
 					String choice = scan.nextLine();
 					if (choice.equals("h")) {
-						break; // break : while 멈추고 if(i >=2) 로 돌아가서 점수합 출력 후 다시 while문으로 옴.
+						break; // break : while 멈추고 if(i >=2) 로 돌아가서 점수합 출력 후 다시 while 문으로 옴.
 					} else if (choice.equals("s")) {
 						return;
 					} else if (!choice.equals("h") && !choice.equals("s")) {
@@ -111,22 +111,6 @@ public class bService_Player {
 		}
 	}
 
-	// }else if(cardNumber[number] == "Q") {
-	// number = 9;
-	// }else if(cardNumber[number] == "K") {
-	// number = 9;
-
-	// }
-
-	// System.out.printf("%d 번째 카드를 뽑으려면 enter 를 눌러주세요",i+2);
-
-	// if(i == 5) {
-	// System.out.println(playerPoint);
-	// start = scan.nextLine();
-	// if(start.equals("")) {
-	// continue; // if 문 을 끝내고 for 문 반복 실행
-	// }else {
-	// System.err.println("enter 키를 눌러주세요");
-	// return; //
+	
 
 }// end for
