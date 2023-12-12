@@ -57,12 +57,10 @@ public class bService_Player2 {
 					System.out.printf("첫 2 장 카드의 합 : %d , 무승부",bDto.playerPoint);
 					break;
 				}				
-				if(bDto.playerPoint > 21) { // 21 초과 시 패배 - 끝내기
-					
+				if(bDto.playerPoint > 21) { // 21 초과 시 패배 - 끝내기	
 					break;
 				}else if(bDto.playerPoint == 21) { // 21이면 승리 - 끝내기 / return 쓰면 for 문 으로 바로 감
-					
-					return;
+					break;
 				}
 				while (true) {
 					System.out.println("카드 1장 더 뽑으려면 'h' 키, 멈추려면 's' 키를 입력하세요");

@@ -7,8 +7,8 @@ public class blackjack {
 		bService_Player playerService = new bService_Player();
 		playerService.start();
 		
+		
 		playerService.printBlackJack();
-	
 		
 	}
 }
