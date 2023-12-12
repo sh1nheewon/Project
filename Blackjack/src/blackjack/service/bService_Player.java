@@ -15,7 +15,7 @@ public class bService_Player {
 		String start = scan.nextLine();
 	}
 	
-	public void inputBlackJack() {
+	protected void inputBlackJack() {
 		bDto.playerPoint = 0;
 
 		String cardPattern[] = { "Club", "Diamond", "Spade", "Heart" };
@@ -81,9 +81,9 @@ public class bService_Player {
 }//end inputBlackJack
 	
 // continue : if 가 참이면 해당 루프의 다음조건식으로 넘어감 / break : 해당 루프 빠져나감 / return : 해당 메소드 종료
-
+// void 안에서는 return 뒤에 아무것도 안붙임
 	public void printBlackJack() { // s 누르면 여기로 옴
-		this.inputBlackJack();
+		this.inputBlackJack();// this.method 사용하려면 protected
 
 		while (true) {
 			
