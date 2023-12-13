@@ -1,13 +1,16 @@
 package blackjack.service;
 
+import java.util.List;
 import java.util.Scanner;
 
 import blackjack.model.blackjackDto;
 
 public class bService_Player2 {
-
+	protected List<blackjackDto> cards =null;
 	blackjackDto bDto = new blackjackDto();
 	Scanner scan = new Scanner(System.in);
+	
+	public
 	
 	public void start() {
 		System.out.println(" BlackJack Game Start ");
@@ -17,43 +20,57 @@ public class bService_Player2 {
 	
 	protected void inputBlackJack() {
 		bDto.playerPoint = 0;
-
+		bDto.dealerPoint = 0;
 		String cardPattern[] = { "Club", "Diamond", "Spade", "Heart" };
 		String cardNumber[] = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
 		int pattern = 0;
 		int number = 0;
 		bDto.cardSum = null;
 		
-		for (int i = 1; i < 20; i++) {
-
+		for (int i = 1; i < 52; i++) {
 			pattern = (int) (Math.random() * cardPattern.length);
 			number = (int) (Math.random() * cardNumber.length);
-
-			// 문자 배열에 있는 카드 문양 번호를 랜덤으로 뽑기 + 문자 배열의 숫자. 두가지 합한 값을 cardSum
-			bDto.cardSum = cardPattern[pattern] + cardNumber[number]; 
-			System.out.printf("%d 번째 카드 : ",i);		
-			System.out.println(bDto.cardSum);
+			bDto.cardSum = cardPattern[pattern] + cardNumber[number]; // 문자 배열에 있는 카드 문양 번호를 랜덤으로 뽑기 + 문자 배열의 숫자. 두가지 합한 값을 cardSum
 			if (cardNumber[number] == "J" || cardNumber[number] == "Q" || cardNumber[number] == "K") {
-				number = 9;
+				number = 9; // 배열이 0부터 시작하기 때문에 cardNumber[9] 는 10 
 			}
+			while(true) {
+				
+			if (i > 1 && bDto.cardSum == bDto.cardSum) { // 중복방지
+				System.out.println("중복");
+				continue;
+			}
+			break;
+			}
+			
+			
+			
+			
+			
+			
 			bDto.playerPoint += (number + 1);
-			if (i == 1) {
-				System.out.printf("점수 : %d\n",bDto.playerPoint);
+			bDto.dealerPoint += (number + 1);
+			System.out.printf("%d 번째 카드 : %s",i,bDto.cardSum);		
+			
+			if(i == 1) { // i 의 값이 짝수 : player
+				number = bDto.playerPoint;
+			}else if(i == 2){ // i 의 값이 홀수 : dealer
+				number = bDto.dealerPoint;
+			}
+			if (i < 4) {
+				
+				System.out.printf("점수 : %d / dealer : %d\n",bDto.playerPoint, bDto.dealerPoint);
 				System.out.printf("%d 번째 카드를 뽑으려면 enter 를 눌러주세요\n", (i+1));
 				String str = scan.nextLine();
-				if (bDto.cardSum == cardPattern[pattern] + cardNumber[number]) {
-					continue;
-				}
+				
 			} 
 			
 			// 2장의 카드를 뽑고, 21점 초과일 시 패배, 21점이면 무승부(첫 2장 카드의 합이 21), 21점 미만은 계속 진행 가능
 			
-			if (i >= 2) {
-				if (bDto.cardSum == cardPattern[pattern] + cardNumber[number]) {
-					continue;
-				}
+			if (i >= 4) {
+				
 				System.out.printf("점수 합 : %d\n", bDto.playerPoint);
-				if(i == 2 && bDto.playerPoint == 21) { // 첫2장 카드 블랙잭 : 무승부 - 끝내기
+				if(i >= 4 && bDto.playerPoint == 21) { // 첫2장 카드 블랙잭 : 무승부 - 끝내기
 					System.out.printf("첫 2 장 카드의 합 : %d , 무승부",bDto.playerPoint);
 					break;
 				}				
@@ -62,6 +79,7 @@ public class bService_Player2 {
 				}else if(bDto.playerPoint == 21) { // 21이면 승리 - 끝내기 / return 쓰면 for 문 으로 바로 감
 					break;
 				}
+				
 				while (true) {
 					System.out.println("카드 1장 더 뽑으려면 'h' 키, 멈추려면 's' 키를 입력하세요");
 					String choice = scan.nextLine();
@@ -73,7 +91,8 @@ public class bService_Player2 {
 						System.out.println("h 키나 s 키를 입력하세요");
 						continue; // while 반복
 					}
-				}		
+				}	
+				
 			}// end if(i>=2)
 		}	//end for
 }//end inputBlackJack

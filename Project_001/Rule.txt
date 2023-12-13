@@ -58,5 +58,7 @@
 ** 	else if(playerSum == 21)
 ** 		player win
  		
+ 		
+ 		2중for문 둘이 위치 바꾸면 
  	소유한 카드의 합이 21에 가장 근접한 사람이 승리.
   

@@ -8,7 +8,7 @@ public class blackjack2 {
 		playerService.start();
 		
 		playerService.printBlackJack();
-	
+		
 		
 	}
 }
