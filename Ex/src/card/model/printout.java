@@ -2,15 +2,11 @@ package card.model;
 
 public class printout {
 	public static void main(String[] args) {
+		bService_Player4 jack = new bService_Player4();
+	//jack.mainMenu();
 		
-		CardDeck exa = new CardDeck();
-		exa.card();
-		
-//		bService_Player3 player = new bService_Player3();
-//		player.mainMenu();
-//		player.inputBlackJack();
-		
-		
+		jack.inputBlackJack();		
+
 		
 	}
 }

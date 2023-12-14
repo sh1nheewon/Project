@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CardDeck { // 카드덱
-	public void card() {
+	protected void card() {
 		String strSuit = "◆♥♠♣";
 		String strDenomination = "A,2,3,4,5,6,7,8,9,10,K,Q,J";
 
@@ -13,13 +13,18 @@ public class CardDeck { // 카드덱
 
 		List<CardDeckDto> deckList = new ArrayList<CardDeckDto>();
 
+		int suitsNum = (int) (Math.random() * 4);
+		int denosNum = (int) (Math.random() * 13);
+		int value = 0;
+
+		CardDeckDto dto = new CardDeckDto();
 		for (String suit : suits) {
 			for (String deno : denos) {
-				CardDeckDto dto = new CardDeckDto();
+				dto = new CardDeckDto();
 				dto.suit = suit;
 				dto.denomination = deno;
 
-				int value = 0;
+				value = 0;
 				try {
 					value = Integer.valueOf(deno);
 					dto.value = value;
@@ -32,27 +37,34 @@ public class CardDeck { // 카드덱
 				}
 				deckList.add(dto);
 			}
-
-		}
-		
-	}
-	public void Card() {
-		
-		int suitsNum = (int) (Math.random() * 4);
-		int denosNum = (int) (Math.random() * 13);
+		} // end for
 
 		for (int i = 0; i < 6; i++) {
-			
-			CardDeckDto dto = new CardDeckDto();
 			dto.denomination = denos[denosNum];
 			dto.suit = suits[suitsNum];
-			System.out.println(dto.getPattern()[i]);
-		}	
+			
+			
+			System.out.println(dto.getPattern()[i]); // >>>> 카드1장
+			try {
+				value = Integer.valueOf(dto.denomination);
+			} catch (Exception e) {
+				if (dto.denomination.equals("A"))
+					value = 1;
+				else if (dto.denomination.equals("J"))
+					value = 10;
+				else if (dto.denomination.equals("Q"))
+					value = 10;
+				else if (dto.denomination.equals("K"))
+					value = 10;
+			}
+		}
+		dto.value = value;
+		deckList.add(dto);
+		System.out.printf("점수 : %s\n", dto.value); // >>>> 카드 1장의 점수
 	}
 }
-		
-		
-		// 카드 1장 출력
+
+// 카드 1장 출력
 //		for(CardDeckDto dto : deckList) {
 //			//System.out.println(dto.suit + dto.denomination + "," + dto.value);
 //			for(String pattern : dto.getPattern()) {
@@ -85,6 +97,3 @@ public class CardDeck { // 카드덱
 //					System.out.println(pattern);
 //				}
 //			}
-
-	
-

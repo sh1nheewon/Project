@@ -2,9 +2,9 @@ package card.model;
 
 import java.util.Scanner;
 
-public class bService_Player3 {
-
-	protected Scanner scan = null;
+public class bService_Player3{
+	public Scanner scan = null;
+	
 	public bService_Player3() {
 		scan = new Scanner(System.in);
 	}
@@ -15,28 +15,24 @@ public class bService_Player3 {
 		String start = scan.nextLine();
 	}
 	
+	// cardDeck.card(); >>>>>>> 랜덤 카드 1장	
 	
+	// CardDeck 의 bDto.value 값을 가져오기
 	
 	public void inputBlackJack() {
-		CardDeckDto bDto = new CardDeckDto();
-		String[] card = bDto.getPattern();
-		
-		System.out.printf("%s",card[5]);
-		
-		bDto.value = 0;
-		
+		CardDeckDto dto = new CardDeckDto();
+		CardDeck deck = new CardDeck();
+		int pPoint = 0;
+		pPoint = dto.playerPoint();
+		while(true) {				
 		for (int i = 1; i < 20; i++) {
-
-			
-
-			
-			
-			System.out.printf("%d 번째 카드 : ",i);		
-			System.out.println(bDto.value);
 		
+			deck.card();
+			System.out.printf("%d 번째 카드 : %d\n",i ,pPoint);		
 			
-			if (i == 1) {
-				System.out.printf("점수 : %d\n",bDto.value);
+			
+			if (i == 2) {
+				System.out.printf("점수 : %d\n", dto.playerPoint());
 				System.out.printf("%d 번째 카드를 뽑으려면 enter 를 눌러주세요\n", (i+1));
 				String str = scan.nextLine();
 				
@@ -72,6 +68,7 @@ public class bService_Player3 {
 				}		
 			}// end if(i>=2)
 		}	//end for
+		}
 }//end inputBlackJack
 	
 // continue : if 가 참이면 해당 루프의 다음조건식으로 넘어감 / break : 해당 루프 빠져나감 / return : 해당 메소드 종료
