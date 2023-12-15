@@ -1,4 +1,4 @@
-package card.model;
+package blackjack.model;
 
 public class CardDeckDto {
 	public String suit;

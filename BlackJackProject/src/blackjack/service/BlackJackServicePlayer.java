@@ -1,11 +1,13 @@
-package card.model;
+package blackjack.service;
 
 import java.util.Scanner;
 
-public class bService_Player3 {
+import blackjack.model.CardDeckDto;
+
+public class BlackJackServicePlayer {
 
 	protected Scanner scan = null;
-	public bService_Player3() {
+	public BlackJackServicePlayer() {
 		scan = new Scanner(System.in);
 	}
 	

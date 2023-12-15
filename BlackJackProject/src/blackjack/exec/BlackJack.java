@@ -1,6 +1,8 @@
-package card.model;
+package blackjack.exec;
 
-public class printout {
+import card.CardDeck;
+
+public class BlackJack {
 	public static void main(String[] args) {
 		
 		CardDeck exa = new CardDeck();

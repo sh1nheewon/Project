@@ -1,7 +1,9 @@
-package card.model;
+package card;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import blackjack.model.CardDeckDto;
 
 public class CardDeck { // 카드덱
 	public void card() {
@@ -35,8 +37,7 @@ public class CardDeck { // 카드덱
 
 		}
 		
-	}
-	public void Card() {
+	//public void Card() {
 		
 		int suitsNum = (int) (Math.random() * 4);
 		int denosNum = (int) (Math.random() * 13);
@@ -50,6 +51,7 @@ public class CardDeck { // 카드덱
 		}	
 	}
 }
+//}
 		
 		
 		// 카드 1장 출력
