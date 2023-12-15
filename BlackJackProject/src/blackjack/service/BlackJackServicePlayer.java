@@ -3,10 +3,11 @@ package blackjack.service;
 import java.util.Scanner;
 
 import blackjack.model.CardDeckDto;
+import card.CardDeck;
 
 public class BlackJackServicePlayer {
 
-	protected Scanner scan = null;
+	protected Scanner scan = null;	
 	public BlackJackServicePlayer() {
 		scan = new Scanner(System.in);
 	}
@@ -17,28 +18,24 @@ public class BlackJackServicePlayer {
 		String start = scan.nextLine();
 	}
 	
+	// cardDeck.card(); >>>>>>> 랜덤 카드 1장	
 	
+	// CardDeck 의 bDto.value 값을 가져오기
 	
 	public void inputBlackJack() {
-		CardDeckDto bDto = new CardDeckDto();
-		String[] card = bDto.getPattern();
-		
-		System.out.printf("%s",card[5]);
-		
-		bDto.value = 0;
-		
+		CardDeckDto dto = new CardDeckDto();
+		CardDeck deck = new CardDeck();
+		int pPoint = 0;
+		pPoint = dto.playerPoint();
+		while(true) {				
 		for (int i = 1; i < 20; i++) {
-
-			
-
-			
-			
-			System.out.printf("%d 번째 카드 : ",i);		
-			System.out.println(bDto.value);
 		
+			deck.card();
+			System.out.printf("%d 번째 카드 : %d\n",i ,pPoint);		
 			
-			if (i == 1) {
-				System.out.printf("점수 : %d\n",bDto.value);
+			
+			if (i == 2) {
+				System.out.printf("점수 : %d\n", dto.playerPoint());
 				System.out.printf("%d 번째 카드를 뽑으려면 enter 를 눌러주세요\n", (i+1));
 				String str = scan.nextLine();
 				
@@ -48,16 +45,16 @@ public class BlackJackServicePlayer {
 			
 			if (i >= 2) {
 				
-				System.out.printf("점수 합 : %d\n", bDto.value);
-				if(i == 2 && bDto.value == 21) { // 첫2장 카드 블랙잭 : 무승부 - 끝내기
-					System.out.printf("첫 2 장 카드의 합 : %d , 무승부",bDto.value);
+				System.out.printf("점수 합 : %d\n", dto.value);
+				if(i == 2 && dto.value == 21) { // 첫2장 카드 블랙잭 : 무승부 - 끝내기
+					System.out.printf("첫 2 장 카드의 합 : %d , 무승부",dto.value);
 					break;
 				}				
-				if(bDto.value> 21) { // 21 초과 시 패배 - 끝내기
-					System.out.printf("%d 장 카드의 합 : %d, 21 점 이상으로 패배하였습니다.\n",i,bDto.value);
+				if(dto.value> 21) { // 21 초과 시 패배 - 끝내기
+					System.out.printf("%d 장 카드의 합 : %d, 21 점 이상으로 패배하였습니다.\n",i,dto.value);
 					break;
-				}else if(bDto.value== 21) { // 21이면 승리 - 끝내기 / return 쓰면 for 문 으로 바로 감
-					System.out.printf("BlackJack!\n게임에서 승리하였습니다!\n",bDto.value);
+				}else if(dto.value== 21) { // 21이면 승리 - 끝내기 / return 쓰면 for 문 으로 바로 감
+					System.out.printf("BlackJack!\n게임에서 승리하였습니다!\n",dto.value);
 					return;
 				}
 				while (true) {
@@ -74,6 +71,7 @@ public class BlackJackServicePlayer {
 				}		
 			}// end if(i>=2)
 		}	//end for
+		}
 }//end inputBlackJack
 	
 // continue : if 가 참이면 해당 루프의 다음조건식으로 넘어감 / break : 해당 루프 빠져나감 / return : 해당 메소드 종료

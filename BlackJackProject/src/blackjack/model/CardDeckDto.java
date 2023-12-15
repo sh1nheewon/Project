@@ -3,7 +3,22 @@ package blackjack.model;
 public class CardDeckDto {
 	public String suit;
 	public String denomination;
+	
 	public int value;
+	public int playerPoint;
+	
+	
+	public int playerPoint() {
+		playerPoint = 0;
+		playerPoint += value;
+		return playerPoint;
+	}
+	
+	
+	
+	
+	
+	
 	
 	public String[] getPattern() {
 		String pattern[] = {

@@ -1,18 +1,14 @@
 package blackjack.exec;
 
-import card.CardDeck;
+import blackjack.service.BlackJackServicePlayer;
 
 public class BlackJack {
 	public static void main(String[] args) {
+		BlackJackServicePlayer blackJack = new BlackJackServicePlayer();
+	//jack.mainMenu();
 		
-		CardDeck exa = new CardDeck();
-		exa.card();
-		
-//		bService_Player3 player = new bService_Player3();
-//		player.mainMenu();
-//		player.inputBlackJack();
-		
-		
+		blackJack.inputBlackJack();		
+
 		
 	}
 }
