@@ -1,13 +1,11 @@
 package blackjack.exec;
 
-import blackjack.service.bService_Player;
+import blackjack.service.BlackJackPlay;
 
 public class blackjack {
 	public static void main(String[] args) {
-		bService_Player playerService = new bService_Player();
+		BlackJackPlay playerService = new BlackJackPlay();
 		playerService.start();
-		
-		
 		playerService.printBlackJack();
 		
 	}

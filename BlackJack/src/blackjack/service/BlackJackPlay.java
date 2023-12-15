@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import blackjack.model.blackjackDto;
 
-public class bService_Player2 {
+public class BlackJackPlay {
 
 	blackjackDto bDto = new blackjackDto();
 	Scanner scan = new Scanner(System.in);
@@ -68,18 +68,30 @@ public class bService_Player2 {
 				if (bDto.cardSum == cardPattern[pattern] + cardNumber[number]) {
 					continue;
 				}
-				System.out.printf("dealer 카드 획득 완료\n\n");
+				System.out.printf("dealer 카드 획득 완료\n");
 				// System.out.printf("dealer 점수 : %s\n", bDto.dealerPoint);
-				System.out.printf("player 점수 : %d\n", bDto.playerPoint);
+				System.out.printf("player 총 점수 : %d\n", bDto.playerPoint);
 			}
 			if (i >= 4) {
 				if (bDto.cardSum == cardPattern[pattern] + cardNumber[number]) {
 					continue;
 				}
-				if (i >= 4 && bDto.dealerPoint < 17) { // dealer 점수 17미만이면 카드 획득
+				while (true) {
+					if(i >= 4 && bDto.dealerPoint < 17){// dealer 점수 17미만이면 카드 획득
 					bDto.dealerPoint += (number + 1);
 					continue;
+				}break;
 				}
+				
+				if (i == 4 && bDto.playerPoint == 21)
+					break;
+				else if (i == 4 && bDto.dealerPoint == 21)
+					break;
+				if (bDto.playerPoint > 21)
+					break;
+				else if (bDto.playerPoint == 21 || bDto.dealerPoint == 21)
+					break;
+
 				while (true) {
 					System.out.println("카드 1장 더 뽑으려면 'h' 키, 멈추려면 's' 키를 입력하세요");
 					String choice = scan.nextLine();
@@ -92,16 +104,6 @@ public class bService_Player2 {
 						continue; 
 					}
 				}
-
-				if (i == 4 && bDto.playerPoint == 21)
-					break;
-				else if (i == 4 && bDto.dealerPoint == 21)
-					break;
-				if (bDto.playerPoint > 21)
-					break;
-				else if (bDto.playerPoint == 21 || bDto.dealerPoint == 21)
-					break;
-
 			} 
 		} // end for
 	}// end inputBlackJack
@@ -112,34 +114,38 @@ public class bService_Player2 {
 		while (true) {
 			if (bDto.playerPoint > bDto.dealerPoint && bDto.playerPoint < 21) {
 				System.out.println("Player 승");
-				System.out.printf("Player 점수 : %d\n딜러 점수 : %d\n", bDto.playerPoint, bDto.cardNumber);
+				System.out.printf("Player 점수 : %d\n Player 획득 카드 : %s\n Dealer 점수 : %d\n ", 
+						bDto.playerPoint, bDto.cardSum, bDto.cardNumber);
 
 			} else if (bDto.dealerPoint > bDto.playerPoint && bDto.dealerPoint < 21) {
 				System.out.println("Dealer 승");
-				System.out.printf("Player 점수 : %d\n딜러 점수 : %d\n", bDto.playerPoint, bDto.cardNumber);
+				System.out.printf("Player 점수 : %d\n Player 획득 카드 : %s\nDealer 점수 : %d\n", 
+						bDto.playerPoint, bDto.cardSum, bDto.cardNumber);
 
 			} else if (bDto.playerPoint > 21 && bDto.playerPoint > bDto.dealerPoint) {
 				System.out.println("Player LOSE!");
-				System.out.printf("Player 점수 합 : %d\n 21 점 이상으로 패배하였습니다.\n Dealer 점수 : %d\n", bDto.playerPoint,
-						bDto.dealerPoint);
+				System.out.printf("Player 점수 합 : %d\n Player 획득 카드 : %s\n Dealer 점수 : %d\n", 
+						bDto.playerPoint, bDto.cardSum, bDto.dealerPoint);
 
 			} else if (bDto.dealerPoint > 21 && bDto.dealerPoint > bDto.playerPoint) {
 				System.out.println("Dealer LOSE!");
-				System.out.printf("Dealer 점수 합 : %d\n 21 점 이상으로 패배하였습니다.\n Playler 점수 : %d\n", bDto.dealerPoint,
-						bDto.playerPoint);
+				System.out.printf("Dealer 점수 합 : %d\n Player 획득 카드 : %s\n Playler 점수 : %d\n", 
+						bDto.dealerPoint,bDto.cardSum,bDto.playerPoint);
 
 			} else if (bDto.playerPoint == 21) {
 				System.out.println("Black Jack!");
-				System.out.printf("Player 승리!\n Player 점수 : %d\n Dealer 점수 : %d\n", bDto.playerPoint, bDto.dealerPoint);
+				System.out.printf("Player 승리!\n Player 점수 : %d\n Player 획득 카드 : %s\n Dealer 점수 : %d\n", 
+						bDto.playerPoint,bDto.cardSum,bDto.dealerPoint);
 
 			} else if (bDto.dealerPoint == 21) {
 				System.out.println("Black Jack!");
-				System.out.printf("Dealer 점수 합 : %d\n Dealer 승리\n Player 점수 : %d\n", bDto.dealerPoint,
-						bDto.playerPoint);
+				System.out.printf("Dealer 점수 합 : %d\n Dealer 승리\n Player 획득 카드 : %s\n Player 점수 : %d\n", 
+						bDto.dealerPoint,bDto.cardSum,bDto.playerPoint);
 
 			} else if (bDto.playerPoint > 21 && bDto.playerPoint == bDto.dealerPoint) {
 				System.out.println("무승부");
-				System.out.printf("Player 점수 합 : %d\n Dealer 점수 : %d\n", bDto.playerPoint, bDto.dealerPoint);
+				System.out.printf("Player 점수 합 : %d\n Player 획득 카드 : %s\n Dealer 점수 : %d\n", 
+						bDto.playerPoint,bDto.cardSum,bDto.dealerPoint);
 			}
 			break;
 		}
