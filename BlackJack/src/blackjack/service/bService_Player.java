@@ -39,16 +39,14 @@ public class bService_Player {
 			bDto.playerPoint += (number + 1);
 
 			if (i == 1) {
-				System.out.printf("점수 : %d\n",bDto.playerPoint);
-				System.out.printf("%d 번째 카드를 뽑으려면 enter 를 눌러주세요\n", (i+1));
-				String str = scan.nextLine();
 				if (bDto.cardSum == cardPattern[pattern] + cardNumber[number]) {
 					continue;
 				}
+				System.out.printf("점수 : %d\n",bDto.playerPoint);
+				System.out.printf("%d 번째 카드를 뽑으려면 enter 를 눌러주세요\n", (i+1));
+				String str = scan.nextLine();
 			} 
-			
-			// 2장의 카드를 뽑고, 21점 초과일 시 패배, 21점이면 무승부(첫 2장 카드의 합이 21), 21점 미만은 계속 진행 가능
-			
+						
 			if (i >= 2) {
 				if (bDto.cardSum == cardPattern[pattern] + cardNumber[number]) {
 					continue;
