@@ -77,7 +77,7 @@ public class BlackJackPlay {
 				if (bDto.cardSum == cardPattern[pattern] + cardNumber[number]) {
 					continue;
 				}
-				if (i >= 4 && bDto.dealerPoint < 17) {// dealer 점수 17미만이면 카드 획득
+				if (i >= 4 && bDto.dealerPoint < 17) {
 					bDto.dealerPoint += (number + 1);
 					continue;
 				}
@@ -85,19 +85,20 @@ public class BlackJackPlay {
 					System.out.println("카드 1장 더 뽑으려면 'h' 키, 멈추려면 's' 키를 입력하세요");
 					String choice = scan.nextLine();
 					if (choice.equals("h")) {
-						break;
+						return;
 					} else if (choice.equals("s")) {
 						return;
 					} else if (!choice.equals("h") && !choice.equals("s")) {
 						System.out.println("h 키나 s 키를 입력하세요");
 						continue;
 					}
+					if (i == 4 && bDto.playerPoint >= 21)
+						break;
+					else if (i == 4 && bDto.dealerPoint >= 21)
+						break;
+					
 				}
-
-				if (i == 4 && bDto.playerPoint >= 21)
-					break;
-				else if (i == 4 && bDto.dealerPoint >= 21)
-					break;
+				
 			}
 		} // end for
 	}// end inputBlackJack
