@@ -15,7 +15,7 @@ public class bService_Player {
 		String start = scan.nextLine();
 	}
 	
-	protected void inputBlackJack() {
+	public void inputBlackJack() {
 		bDto.playerPoint = 0;
 
 		String cardPattern[] = { "Club", "Diamond", "Spade", "Heart" };
@@ -24,7 +24,7 @@ public class bService_Player {
 		int number = 0;
 		bDto.cardSum = null;
 		
-		for (int i = 1; i < 20; i++) {
+		for (int i = 1; i < 53; i++) {
 
 			pattern = (int) (Math.random() * cardPattern.length);
 			number = (int) (Math.random() * cardNumber.length);
@@ -37,6 +37,7 @@ public class bService_Player {
 				number = 9;
 			}
 			bDto.playerPoint += (number + 1);
+
 			if (i == 1) {
 				System.out.printf("점수 : %d\n",bDto.playerPoint);
 				System.out.printf("%d 번째 카드를 뽑으려면 enter 를 눌러주세요\n", (i+1));

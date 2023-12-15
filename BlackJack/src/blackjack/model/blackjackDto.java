@@ -6,10 +6,7 @@ public class blackjackDto {
 	public String dealerCard;
 	
 	public String cardSum;
-	
-	
-	
-	
+		
 	public int cardNumber;
 		
 	public int playerPoint;

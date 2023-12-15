@@ -9,16 +9,11 @@ public class CardDeckDto {
 	
 	
 	public int playerPoint() {
-		value += value;
-		return value;
+		playerPoint += this.value;
+		return playerPoint;
+		
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	public String[] getPattern() {
 		String pattern[] = {
 			String.format("┌──────┐ "),

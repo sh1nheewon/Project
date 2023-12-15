@@ -65,6 +65,7 @@ public class CardDeck {
 		}
 		dto.value = value;
 		deckList.add(dto);
+		
 		System.out.printf("점수 : %s\n", dto.value); // >>>> 카드 1장의 점수
 	}
 
@@ -94,7 +95,7 @@ public class CardDeck {
 //			System.out.println();
 //		}
 
-//		// dto.getPattern()[0] 이면 1번 줄 52개, 5면 마지막 줄만 52개가 출력
+//
 //	
 //		int cardLines = deckList.get(0).getPattern().length;
 //		for(int i = 0 ; i < 2 ; i++) {

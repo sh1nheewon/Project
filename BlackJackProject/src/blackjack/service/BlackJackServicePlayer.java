@@ -1,16 +1,21 @@
 package blackjack.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import blackjack.model.CardDeckDto;
 import card.CardDeck;
 
 public class BlackJackServicePlayer {
-
-	protected Scanner scan = null;
-
+	public Scanner scan = null;
+	public List<CardDeckDto> deckList = null;
+	CardDeckDto dto = new CardDeckDto();
+	CardDeck deck = new CardDeck();
+	
 	public BlackJackServicePlayer() {
 		scan = new Scanner(System.in);
+		deckList = new ArrayList<CardDeckDto>(); 	
 	}
 
 	public void mainMenu() {
@@ -19,23 +24,15 @@ public class BlackJackServicePlayer {
 		String start = scan.nextLine();
 	}
 
-	// cardDeck.card(); >>>>>>> 랜덤 카드 1장
-
-	// CardDeck 의 bDto.value 값을 가져오기
-
-	public void inputBlackJack() {
-		CardDeckDto dto = new CardDeckDto();
-		CardDeck deck = new CardDeck();
-		int pPoint = 0;
-		pPoint = dto.playerPoint();
+	public void inputBlackJack() {			
 		while (true) {
-			for (int i = 1; i < 20; i++) {
-
+			
+			for (int i = 1; i < deckList.size(); i++) {
 				deck.card();
-				System.out.printf("%d 번째 카드 : %d\n", i, pPoint);
-
+				System.out.printf("%d 번째 카드 : %d\n", i,dto.value);
+				
 				if (i == 1) {
-					System.out.printf("점수 : %d\n", dto.playerPoint());
+					
 					System.out.printf("%d 번째 카드를 뽑으려면 enter 를 눌러주세요\n", (i + 1));
 					String str = scan.nextLine();
 				}
@@ -57,16 +54,18 @@ public class BlackJackServicePlayer {
 						System.out.println("카드 1장 더 뽑으려면 'h' 키, 멈추려면 's' 키를 입력하세요");
 						String choice = scan.nextLine();
 						if (choice.equals("h")) {
-							break; // break : while 멈추고 if(i >=2) 로 돌아가서 점수합 출력 후 다시 while 문으로 옴.
+							break; 
 						} else if (choice.equals("s")) {
 							return;
 						} else if (!choice.equals("h") && !choice.equals("s")) {
 							System.out.println("h 키나 s 키를 입력하세요");
-							continue; // while 반복
+							continue; 
 						}
 					}
-				} // end if(i>=2)
+				} 
+			
 			} // end for
+			
 		}
 	}// end inputBlackJack
 }
