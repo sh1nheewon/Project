@@ -5,7 +5,7 @@ import java.util.List;
 
 import blackjack.model.CardDeckDto;
 
-public class CardDeck { // 카드덱
+public class CardDeck { 
 	public void card() {
 		String strSuit = "◆♥♠♣";
 		String strDenomination = "A,2,3,4,5,6,7,8,9,10,K,Q,J";

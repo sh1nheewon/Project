@@ -9,9 +9,8 @@ public class CardDeckDto {
 	
 	
 	public int playerPoint() {
-		playerPoint = 0;
-		playerPoint += value;
-		return playerPoint;
+		value += value;
+		return value;
 	}
 	
 	
